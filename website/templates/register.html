@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <form action="" method="post">
+    {% csrf_token %}
+    <h1>Signup</h1>
+    <br />
+    {% if form.errors %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Your Form Has errors {% for field in form %} {% if field.errors%}
+      {{field.errors}} {% endif %} {% endfor %}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endif %} {{form.as_p}}
+
+    <button type="submit" class="btn btn-secondary">Signup</button>
+  </form>
+</div>
+
+{% endblock %}
